@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30517.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Day17_HashTable_And_BinarySearchTree_DataStructure", "Day17_HashTable_And_BinarySearchTree_DataStructure\Day17_HashTable_And_BinarySearchTree_DataStructure.csproj", "{C9E8789D-5E23-43F9-AC77-60FA9FD0E1EC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C9E8789D-5E23-43F9-AC77-60FA9FD0E1EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9E8789D-5E23-43F9-AC77-60FA9FD0E1EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9E8789D-5E23-43F9-AC77-60FA9FD0E1EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9E8789D-5E23-43F9-AC77-60FA9FD0E1EC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {03966657-D070-41FB-A3A0-C787EB231752}
+	EndGlobalSection
+EndGlobal
