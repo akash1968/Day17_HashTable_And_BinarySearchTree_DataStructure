@@ -11,7 +11,7 @@ namespace Day17_HashTable_And_BinarySearchTree_DataStructure
     {
         static void Main(string[] args)
         {
-            // UC_2- Ability to find frequency of words in large paragraph phrase
+            // UC_3- Ability to Remove particular words in large paragraph phrase
             // Creating an object of MyMapNode Class
             // size of the hash table is 20
             MyMapNode<string, string> hash = new MyMapNode<string, string>(20);
@@ -26,11 +26,11 @@ namespace Day17_HashTable_And_BinarySearchTree_DataStructure
             {
                 hash.Add(Convert.ToString(i), paraWords[i]);
             }
-            // iterating using for each loop to get the frequency of each word in the sentence
-            foreach (string word in paraWords)
-            {
-                hash.GetFrequency(word);
-            }
+            Console.WriteLine("");
+            Console.WriteLine("Removing the word 'avoidable' from the hash table ");
+            Console.WriteLine("Frequency of 'avoidable' before removal is :" + hash.GetFrequency("avoidable"));
+            hash.RemoveValue("avoidable");
+            Console.WriteLine("Frequency of 'avoidable' after removal is :" + hash.GetFrequency("avoidable"));
             Console.ReadLine();
         }
     }

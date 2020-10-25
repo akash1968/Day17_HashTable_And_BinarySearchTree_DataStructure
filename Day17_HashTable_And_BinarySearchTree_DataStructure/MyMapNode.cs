@@ -137,5 +137,30 @@ namespace Day17_HashTable_And_BinarySearchTree_DataStructure
             Console.WriteLine("Word '{0}' appears {1} times", value, frequency);
             return frequency;
         }
+        
+        // Generic Method to Remove a particular word from the hash table
+        public void RemoveValue(V value)
+        {
+            // Iterating using foreach loop to get the key value pair in the list
+            foreach (LinkedList<KeyValue<K, V>> list in items)
+            {
+                if (list == null)
+                    continue;
+                // iterating using for each loop to get each object in the list
+                foreach (KeyValue<K, V> obj in list)
+                {
+                    if (obj.Equals(null))
+                    {
+                        continue;
+                    }
+                    // if the object matches the value then Removing it
+                    if (obj.Value.Equals(value))
+                    {
+                        Remove(obj.Key);
+                        break;
+                    }
+                }
+            }
+        }
     }
 }
