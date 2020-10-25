@@ -11,20 +11,26 @@ namespace Day17_HashTable_And_BinarySearchTree_DataStructure
     {
         static void Main(string[] args)
         {
+            // UC_2- Ability to find frequency of words in large paragraph phrase
             // Creating an object of MyMapNode Class
-            // size of the hash table is 5
-            MyMapNode<string, string> hash = new MyMapNode<string, string>(5);
-            Console.WriteLine("Adding KeyValue pair");
-            hash.Add("0", "To");
-            hash.Add("1", "be");
-            hash.Add("2", "or");
-            hash.Add("3", "not");
-            hash.Add("4", "to");
-            hash.Add("5", "be");
-            Console.WriteLine("Getting the value of index 5: " + hash.Get("5"));
-            Console.WriteLine("Getting the value of index 2: " + hash.Get("2"));
-           // UC1 - Ability to find frequency of words
-            hash.GetFrequencyOf("be");
+            // size of the hash table is 20
+            MyMapNode<string, string> hash = new MyMapNode<string, string>(20);
+           // Storing the sentence in the variable para
+            string para = "Paranoids are not paranoid because they are paranoid but because they keep putting themselves deliberately into paranoid avoidable situations";
+            // spliting the words of the phrase and storing each word in the Array String
+            string[] paraWords = para.Split(' ');
+           // Getting the length of the Array String
+            int pLength = paraWords.Length;
+            // Itreating along each word and adding it to hash set
+            for (int i = 0; i < pLength; i++)
+            {
+                hash.Add(Convert.ToString(i), paraWords[i]);
+            }
+            // iterating using for each loop to get the frequency of each word in the sentence
+            foreach (string word in paraWords)
+            {
+                hash.GetFrequency(word);
+            }
             Console.ReadLine();
         }
     }
