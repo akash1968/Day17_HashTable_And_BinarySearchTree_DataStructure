@@ -9,6 +9,14 @@ using System.Collections.Generic;
 using System.Text;
 namespace Day17_HashTable_And_BinarySearchTree_DataStructure
 {
+    // Class For Key Value Pair 
+    public class KeyValue<k, v>
+    {
+        // defining members elements with the properties
+        public k Key { get; set; }
+        public v Value { get; set; }
+        public int Frequency { get; set; }
+    }
     public class MyMapNode<K, V>
     {
         // defining member variables
@@ -20,13 +28,7 @@ namespace Day17_HashTable_And_BinarySearchTree_DataStructure
             this.size = size;
             this.items = new LinkedList<KeyValue<K, V>>[size];
         }
-      // Class For Key Value Pair with data type structure
-        public struct KeyValue<k, v>
-        {
-            // defining members elements with the properties
-            public k Key { get; set; }
-            public v Value { get; set; }
-        }
+     
          // Hash Code Method to Find the Array Position with key as the parameter
         // Gets a unique array items[] position for entered key.
         protected int GetArrayPosition(K key)
@@ -36,7 +38,8 @@ namespace Day17_HashTable_And_BinarySearchTree_DataStructure
             // Math function to find the absolute position at which the particular key value pair is situated
             return Math.Abs(position);
         }
-      // Creating a GetLinkedList Method with return type as KeyValue Pair
+       
+        // Creating a GetLinkedList Method with return type as KeyValue Pair
         // Gets the linked list present at the entered position in the items[] array
         protected LinkedList<KeyValue<K, V>> GetLinkedList(int position)
         {
@@ -50,8 +53,9 @@ namespace Day17_HashTable_And_BinarySearchTree_DataStructure
             }
             return linkedList;
         }
-      // Gets the value at the specified key.
-      // Generic Method to find the key value pair at the particular position
+       
+        // Gets the value at the specified key.
+        // Generic Method to find the key value pair at the particular position
         public V Get(K key)
         {
             int position = GetArrayPosition(key);
@@ -64,18 +68,20 @@ namespace Day17_HashTable_And_BinarySearchTree_DataStructure
             }
             return default(V);
         }
-       // Generic Method to Adds the specified key,value pair at the end of the linked list present at the position corresponding to the key.       
+     
+        // Generic Method to Adds the specified key,value pair at the end of the linked list present at the position corresponding to the key.       
         public void Add(K key, V value)
         {
             /// Gets the position to the key
             int position = GetArrayPosition(key);
             /// Gets the linked list present at the position
             LinkedList<KeyValue<K, V>> linkedList = GetLinkedList(position);
-            KeyValue<K, V> kvp = new KeyValue<K, V>() { Key = key, Value = value };
-            /// Adds the key-value pair at the end of the linked list
-            linkedList.AddLast(kvp);
-            Console.WriteLine(linkedList.Last.Value.Key + " " + linkedList.Last.Value.Value);
+            KeyValue<K, V> item = new KeyValue<K, V>() { Key = key, Value = value };          
+            // Adds the key-value pair at the end of the linked list
+            linkedList.AddLast(item);
+            Console.WriteLine(item.Value +" :-is Added at Index : " + item.Key);
         }
+       
         // Generic Method to Remove a particular item from the Hash Table
         public void Remove(K key)
         {
@@ -101,26 +107,35 @@ namespace Day17_HashTable_And_BinarySearchTree_DataStructure
                 linkedList.Remove(foundItem);
             }
         }
-        // UC 1 : Prints the frequency of the specified value in the hashtable.
-        public void GetFrequencyOf(V value)
+       
+        // Generic Method to find the frequency of the words appearing in the hash table
+        public int GetFrequency(V value)
         {
-            int count = 0;
-            // Iterating using the foreach loop to get the key value of each item
-            foreach (var linkedList in items)
+            int frequency = 0;
+            // Iterating using foreach loop to get the key value pair in the list
+            foreach (LinkedList<KeyValue<K, V>> list in items)
             {
-                // checking if key is not null 
-                if (linkedList != null)
+                if (list == null)
                 {
-                    // iterating using the foreach loop to get the value of the item in linked list
-                    foreach (var v in linkedList)
+                    continue;
+                }
+                // iterating using for each loop to get each object in the list
+                foreach (KeyValue<K, V> obj in list)
+                {
+                    if (obj.Equals(null))
                     {
-                        // if the entered value matches the key value then incresing the frequency count
-                        if (v.Value.Equals(value))
-                            count++;
+                        continue;
+                    }
+                    // if the object matches the value then increasing the frequency count 
+                    if (obj.Value.Equals(value))
+                    {
+                        frequency++;
                     }
                 }
             }
-            Console.WriteLine($"Frequency of '{value}'= {count}");
+            Console.WriteLine("");
+            Console.WriteLine("Word '{0}' appears {1} times", value, frequency);
+            return frequency;
         }
     }
 }
