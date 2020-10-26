@@ -71,6 +71,27 @@ namespace Day17_HashTable_And_BinarySearchTree_DataStructure
             {
                 Console.WriteLine("Right :" + parent.Right.data);
             }
-       }
+            if (parent.Left != null)
+            {
+                DisplayBST(parent.Left);
+            }
+            if (parent.Right != null)
+            {
+                DisplayBST(parent.Right);
+            }
+        }
+       // Method to Get the size of the Binary Search Tree
+        public int Size(Node<T> node)
+        {
+            if (node == null)
+            {
+                return 0;
+            }
+            else
+            {
+                // Adding the all the left node, all the right nodes and the root node 
+                return (Size(node.Left) + 1 + Size(node.Right));
+            }
+        }
     }
 }
