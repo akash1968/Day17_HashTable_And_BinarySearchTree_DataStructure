@@ -7,9 +7,9 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-
 namespace Day17_HashTable_And_BinarySearchTree_DataStructure
 {
+   // Defining a Generic Class Node
     class Node<T> where T : IComparable
     {
         // Node Value in Binary Tree

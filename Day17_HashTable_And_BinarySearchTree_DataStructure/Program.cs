@@ -11,7 +11,7 @@ namespace Day17_HashTable_And_BinarySearchTree_DataStructure
     {
         static void Main(string[] args)
         {
- //UC_2- Insert the element in the Binary Tree as given in the UC2
+ //UC_3- Searching for a particular element in the Binary Tree Set
             Console.WriteLine("Welcome to Binary Search Tree");
             BinarySearchTree<int> bst = new BinarySearchTree<int>();
            // Inserting all the elements in the array
@@ -24,6 +24,10 @@ namespace Day17_HashTable_And_BinarySearchTree_DataStructure
            // Displaying the elements of the Binary Search Tree
             bst.DisplayBST(bst.root);
             Console.WriteLine("\n\nSize of Binary Search Tree: " + bst.Size(bst.root));
+            // Searching the element 63 in Binary Search Tree
+            Console.WriteLine();
+            Console.WriteLine("Searching for Element 63 in the Binary Search Tree");
+            bst.Search(63);
         }
     }
 }
