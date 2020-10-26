@@ -10,7 +10,8 @@ using System.Text;
 
 namespace Day17_HashTable_And_BinarySearchTree_DataStructure
 {
-     class BinarySearchTree<T> where T : IComparable
+    // Defining a Generic Class Binary Search Tree
+    class BinarySearchTree<T> where T : IComparable
     {
        // Defining a generic Node root
         public Node<T> root;
@@ -92,6 +93,39 @@ namespace Day17_HashTable_And_BinarySearchTree_DataStructure
                 // Adding the all the left node, all the right nodes and the root node 
                 return (Size(node.Left) + 1 + Size(node.Right));
             }
+        }
+       // Method to search in the Binary Tree Set
+        public void Search(T element)
+        {
+            // Declaring the current node as root
+            Node<T> current = root;
+            bool found = false;
+            while (current != null)
+            {
+                // Checking if the element to be searched is root
+                if (current.data.Equals(element))
+                {
+                    found = true;
+                    break;
+                }
+                else
+                {
+                    // Checking if the element to be searched is present in the left side of Binary Tree
+                    if (element.CompareTo(current.data) < 0)
+                    {
+                        current = current.Left;
+                    }
+                    // Checking if the element to be searched is present in the right side of Binary Tree
+                    else
+                    {
+                        current = current.Right;
+                    }
+                }
+            }
+            if (found)
+                Console.WriteLine("Element Found");
+            else
+                Console.WriteLine("Element Not Found");
         }
     }
 }
